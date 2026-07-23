@@ -94,14 +94,6 @@ h1{
   padding-bottom: 64px;
 }
 .byline{ color: var(--accent); font-size: 0.95rem; font-weight: 500; }
-.socials{ display: flex; gap: 32px; }
-.socials a{
-  font-size: 0.95rem;
-  border-bottom: 1px solid var(--text);
-  padding-bottom: 2px;
-  transition: opacity 0.2s ease;
-}
-.socials a:hover, .socials a:focus-visible{ opacity: 0.6; }
 
 /* ---------- projects ---------- */
 .project-row{
@@ -181,8 +173,8 @@ hr.full{
 /* ---------- contact ---------- */
 .contact{
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(32px, 6vw, 96px);
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
   align-items: center;
   min-height: 85vh;
   padding-top: 64px;
@@ -200,6 +192,32 @@ hr.full{
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--accent);
+}
+
+.contact-socials{
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+.social-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 32px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.social-btn svg{
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+.social-btn:hover, .social-btn:focus-visible{
+  border-color: var(--accent);
+  background: var(--surface);
 }
 
 .contact-form{
@@ -255,11 +273,10 @@ hr.full{
 
 /* ---------- footer ---------- */
 .footer{
-  display: flex;
-  justify-content: space-between;
   padding-top: 32px;
   padding-bottom: 32px;
   position: relative;
+  text-align: center;
 }
 .footer::before{
   content: "";
