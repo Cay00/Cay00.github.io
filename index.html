@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krzysztof — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="nav">
+    <a href="#top" class="logo">Cayoo.</a>
+    <nav class="nav-links">
+      <a href="#projekty">Projekty</a>
+      <a href="#o-mnie">O mnie</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Cześć, jestem<br>Krzysztof.</h1>
+      <p class="hero-desc">Front-end developer i student informatyki we Wrocławiu — pracuję jako Head of UI w Generacja
+        Innowacja.</p>
+    </section>
+
+    <div class="arrow-down">↓</div>
+
+    
+    <!-- ABOUT / SKILLS -->
+    <section class="about" id="o-mnie">
+      <div class="about-row">
+        <span class="about-label">Stack</span>
+        <p>React, TypeScript, Next.js, Tailwind CSS, Flutter, Python, FastAPI, SQL</p>
+      </div>
+      <div class="about-row">
+        <span class="about-label">Narzędzia</span>
+        <p>Git, Figma, Linux, Azure</p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projekty">
+      <hr>
+
+      <article class="project-row">
+        <div class="project-text">
+          <p class="project-label">01 / POMODORYO</p>
+          <p class="project-desc">Aplikacja do produktywności łącząca timery Pomodoro, zadania i śledzenie nawyków.</p>
+          <p class="project-caption">Zbudowana w React, TypeScript i Tailwind CSS.</p>
+          <a href="#" class="project-link">Zobacz więcej ↗</a>
+        </div>
+        <div class="project-image"></div>
+      </article>
+
+      <hr>
+
+      <article class="project-row">
+        <div class="project-text">
+          <p class="project-label">02 / SEJMOWNIK</p>
+          <p class="project-desc">Aplikacja z informacjami o pracach polskiego Sejmu, oparta o Sejm API.</p>
+          <p class="project-caption">Własny system projektowy i logo.</p>
+          <a href="#" class="project-link">Zobacz case study →</a>
+        </div>
+        <div class="project-image"></div>
+      </article>
+
+      <hr>
+
+      <article class="project-row">
+        <div class="project-text">
+          <p class="project-label">03 / TRANSIT TRACKER</p>
+          <p class="project-desc">Śledzenie komunikacji miejskiej we Wrocławiu na żywo, na mapie w ciemnym motywie.</p>
+          <p class="project-caption">Projekt w toku.</p>
+          <span class="project-link muted">Praca w toku</span>
+        </div>
+        <div class="project-image"></div>
+      </article>
+    </section>
+
+    <hr class="full">
+
+    <!-- CONTACT -->
+    <section class="contact" id="kontakt">
+      <p class="contact-prompt">Chętnie odpowiem na wiadomość<br>o Twoim projekcie →</p>
+      <div class="contact-details">
+        <a href="mailto:kontakt@cayoo.dev" class="contact-email">kontakt@cayoo.dev</a>
+        <a href="#" class="contact-cv">Zobacz CV</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span class="byline">Krzysztof — 2026</span>
+    <div class="socials">
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>
