@@ -62,16 +62,19 @@ a{ color: inherit; text-decoration: none; }
   background: var(--bg);
 }
 .logo{ font-weight: 700; font-size: 1.15rem; }
+.logo-dot{ color: var(--accent); }
 .nav-links{ display: flex; gap: 32px; }
 
 /* ---------- hero ---------- */
 .hero{
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 64px;
+  grid-template-rows: auto auto;
+  column-gap: 64px;
+  row-gap: 32px;
   align-items: end;
   padding-top: 192px;
-  padding-bottom: 192px;
+  padding-bottom: 128px;
 }
 h1{
   font-size: clamp(2.6rem, 6vw, 4rem);
@@ -79,28 +82,23 @@ h1{
   line-height: 1.12;
   margin: 0;
   letter-spacing: -0.01em;
-}
-.hero-side{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 64px;
-  gap: 32px;
+  grid-column: 1;
+  grid-row: 1;
 }
 .hero-desc{
   font-size: 1.15rem;
   color: var(--muted);
-  margin: 0;  
+  margin: 0;
   max-width: 38ch;
+  padding-left: 64px;
+  grid-column: 2;
+  grid-row: 1;
 }
 .btn-hero{
-  display: inline-block;
-  padding: 16px 32px;
-  background: var(--accent);
-  color: var(--bg);
-  font-weight: 600;
-  font-size: 0.95rem;
-  border-radius: 999px;
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+  margin-left: 64px;
 }
 
 .arrow-down{
@@ -117,7 +115,7 @@ h1{
   align-items: center;
   padding-bottom: 64px;
 }
-.byline{ color: var(--accent); font-size: 0.95rem; font-weight: 500; }
+.byline{ color: var(--muted); font-size: 0.95rem; font-weight: 500; }
 
 /* ---------- projects ---------- */
 .project-row{
@@ -253,7 +251,6 @@ hr.full{
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
-  min-height: 85vh;
   padding-top: 64px;
   padding-bottom: 64px;
 }
@@ -276,6 +273,7 @@ hr.full{
   gap: 16px;
   margin-top: 32px;
 }
+.btn-hero,
 .social-btn{
   display: inline-flex;
   align-items: center;
@@ -292,6 +290,7 @@ hr.full{
   height: 16px;
   fill: currentColor;
 }
+.btn-hero:hover, .btn-hero:focus-visible,
 .social-btn:hover, .social-btn:focus-visible{
   border-color: var(--accent);
   background: var(--surface);
@@ -337,12 +336,12 @@ hr.full{
   align-self: flex-start;
   padding: 16px 32px;
   background: var(--accent);
-  color: var(--bg);
+  color: var(--text);
   font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 600;
   border: none;
-  border-radius: 4px;
+  border-radius: 999px;
   cursor: pointer;
   transition: opacity 0.2s ease;
 }
@@ -367,6 +366,22 @@ hr.full{
 /* ---------- responsive ---------- */
 @media (max-width: 720px){
   .hero, .project-row, .contact{ grid-template-columns: 1fr; align-items: start; }
+  .hero{ row-gap: 24px; }
+  .hero h1, .hero-desc{
+    grid-column: 1;
+    grid-row: auto;
+    padding-left: 0;
+  }
+  .btn-hero{
+    grid-column: 1;
+    grid-row: auto;
+    margin-left: 0;
+    width: max-content;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .intro-bg img{ opacity: 0.15; }
   .project-image{ order: -1; }
   .contact{ min-height: auto; }
 }
