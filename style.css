@@ -8,8 +8,7 @@
   --accent: #3548d4;
 
   --font: "Plus Jakarta Sans", sans-serif;
-  --max-w: 1040px;
-  --pad-x: clamp(20px, 5vw, 0px);
+  --max-w: 1120px;
 }
 
 *{ box-sizing: border-box; }
@@ -19,7 +18,7 @@ body{
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -31,8 +30,8 @@ a{ color: inherit; text-decoration: none; }
   max-width: var(--max-w);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--pad-x);
-  padding-right: var(--pad-x);
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 /* ---------- nav ---------- */
@@ -44,7 +43,7 @@ a{ color: inherit; text-decoration: none; }
   padding-bottom: 32px;
 }
 .logo{ font-weight: 700; font-size: 1.15rem; }
-.nav-links{ display: flex; gap: clamp(20px, 4vw, 36px); }
+.nav-links{ display: flex; gap: 32px; }
 .nav-links a{
   font-size: 0.95rem;
   color: var(--text);
@@ -57,10 +56,10 @@ a{ color: inherit; text-decoration: none; }
 .hero{
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(24px, 6vw, 64px);
+  gap: 64px;
   align-items: end;
-  padding-top: clamp(48px, 10vw, 96px);
-  padding-bottom: clamp(48px, 8vw, 72px);
+  padding-top: 192px;
+  padding-bottom: 192px;
 }
 h1{
   font-size: clamp(2.6rem, 6vw, 4rem);
@@ -79,19 +78,19 @@ h1{
 .arrow-down{
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 var(--pad-x);
+  padding: 0 32px;
   font-size: 1.6rem;
-  margin-bottom: clamp(48px, 8vw, 80px);
+  margin-bottom: 64px;
 }
 
 .byline-row{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: clamp(56px, 9vw, 88px);
+  padding-bottom: 64px;
 }
 .byline{ color: var(--accent); font-size: 0.95rem; font-weight: 500; }
-.socials{ display: flex; gap: 28px; }
+.socials{ display: flex; gap: 32px; }
 .socials a{
   font-size: 0.95rem;
   border-bottom: 1px solid var(--text);
@@ -104,25 +103,19 @@ h1{
 .project-row{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(28px, 5vw, 64px);
+  gap: 64px;
   align-items: center;
-  padding: clamp(48px, 8vw, 72px) 0;
+  padding: 64px 0;
 }
 .project-label{
   font-size: 0.95rem;
   color: var(--muted);
-  margin: 0 0 20px;
+  margin: 0 0 32px;
   letter-spacing: 0.01em;
 }
 .project-desc{
   font-size: 1.1rem;
-  margin: 0 0 12px;
-  max-width: 34ch;
-}
-.project-caption{
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin: 0 0 24px;
+  margin: 0 0 32px;
   max-width: 34ch;
 }
 .project-link{
@@ -152,7 +145,7 @@ hr{
 }
 /* padding on hr doesn't inset border — draw the line in the content box */
 hr.full{
-  margin: clamp(24px, 5vw, 40px) auto;
+  margin: 32px auto;
   border-top: none;
   height: 1px;
   background: var(--border);
@@ -160,24 +153,25 @@ hr.full{
 }
 
 /* ---------- about ---------- */
-.about{ padding: clamp(24px, 5vw, 40px) auto clamp(48px, 8vw, 72px); }
-.about-row{
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 24px;
-  padding: 18px 0;
+.about{
+  padding-top: 32px;
+  padding-bottom: 64px;
+  text-align: center;
 }
-.about-label{
-  font-size: 0.95rem;
-  color: var(--muted);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 6px;
-  align-self: start;
-}
-.about-row p{
-  margin: 0;
+.about-heading{
+  margin: 0 0 32px;
   font-size: 1rem;
-  max-width: 56ch;
+  color: var(--muted);
+}
+.about-tech{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
 }
 
 /* ---------- contact ---------- */
@@ -187,8 +181,8 @@ hr.full{
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 24px;
-  padding-top: clamp(24px, 5vw, 40px);
-  padding-bottom: clamp(64px, 10vw, 100px);
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 .contact-prompt{
   font-size: clamp(1.3rem, 3vw, 1.7rem);
@@ -214,16 +208,16 @@ hr.full{
 .footer{
   display: flex;
   justify-content: space-between;
-  padding-top: 24px;
-  padding-bottom: 40px;
+  padding-top: 32px;
+  padding-bottom: 32px;
   position: relative;
 }
 .footer::before{
   content: "";
   position: absolute;
   top: 0;
-  left: var(--pad-x);
-  right: var(--pad-x);
+  left: 32px;
+  right: 32px;
   border-top: 1px solid var(--border);
 }
 
@@ -231,7 +225,6 @@ hr.full{
 @media (max-width: 720px){
   .hero, .project-row{ grid-template-columns: 1fr; align-items: start; }
   .project-image{ order: -1; }
-  .about-row{ grid-template-columns: 1fr; }
   .contact{ flex-direction: column; align-items: flex-start; }
   .contact-details{ text-align: left; }
 }
