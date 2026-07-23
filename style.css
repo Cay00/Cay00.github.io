@@ -84,6 +84,7 @@ h1{
   font-size: 1.15rem;
   color: var(--muted);
   margin: 0;
+  padding-left: 64px;
   max-width: 38ch;
 }
 
@@ -182,6 +183,49 @@ hr.full{
   margin: 0;
   padding: 0;
   font-size: 1rem;
+}
+
+/* ---------- hero ---------- */
+.intro{
+  position: relative;
+  margin-top: -128px;
+  padding-top: 128px;
+}
+.intro-bg{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.intro-bg img{
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: calc(100% - 64px);
+  width: auto;
+  max-width: none;
+  display: block;
+  opacity: 0.5;
+}
+.intro-bg::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.intro-bg::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 384px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+}
+.intro > :not(.intro-bg){
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------- contact ---------- */
