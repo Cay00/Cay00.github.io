@@ -17,6 +17,7 @@
   <header class="nav">
     <a href="#top" class="logo">Cayoo.</a>
     <nav class="nav-links">
+      <a href="#">O mnie</a>
       <a href="#projekty">Projekty</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
@@ -90,11 +91,26 @@
 
     <!-- CONTACT -->
     <section class="contact" id="kontakt">
-      <p class="contact-prompt">Chętnie odpowiem na wiadomość<br>o Twoim projekcie →</p>
-      <div class="contact-details">
+      <div class="contact-intro">
+        <p class="contact-prompt">Chętnie odpowiem na wiadomość<br>o Twoim projekcie →</p>
         <a href="mailto:kontakt@cayoo.dev" class="contact-email">kontakt@cayoo.dev</a>
-        <a href="#" class="contact-cv">Zobacz CV</a>
       </div>
+
+      <form class="contact-form" action="#" method="post">
+        <div class="form-field">
+          <label for="name">Imię</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="message">Wiadomość</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Wyślij wiadomość</button>
+      </form>
     </section>
 
   </main>

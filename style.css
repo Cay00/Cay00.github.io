@@ -180,33 +180,78 @@ hr.full{
 
 /* ---------- contact ---------- */
 .contact{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+  min-height: 85vh;
   padding-top: 64px;
   padding-bottom: 64px;
 }
+.contact-intro{ align-self: center; }
 .contact-prompt{
-  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
   font-weight: 600;
-  margin: 0;
+  margin: 0 0 32px;
   line-height: 1.35;
 }
-.contact-details{ text-align: right; }
 .contact-email{
-  display: block;
-  font-size: 1.2rem;
+  display: inline-block;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--accent);
-  margin-bottom: 8px;
 }
-.contact-cv{
-  font-size: 0.9rem;
+
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.form-field{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-field label{
+  font-size: 0.85rem;
   color: var(--muted);
-  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
+.form-field input,
+.form-field textarea{
+  font-family: var(--font);
+  font-size: 1rem;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  resize: none;
+  transition: border-color 0.2s ease;
+}
+.form-field input:focus,
+.form-field textarea:focus{
+  outline: none;
+  border-color: var(--accent);
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder{ color: var(--muted); }
+
+.btn-submit{
+  align-self: flex-start;
+  padding: 16px 32px;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.btn-submit:hover, .btn-submit:focus-visible{ opacity: 0.85; }
 
 /* ---------- footer ---------- */
 .footer{
@@ -227,10 +272,9 @@ hr.full{
 
 /* ---------- responsive ---------- */
 @media (max-width: 720px){
-  .hero, .project-row{ grid-template-columns: 1fr; align-items: start; }
+  .hero, .project-row, .contact{ grid-template-columns: 1fr; align-items: start; }
   .project-image{ order: -1; }
-  .contact{ flex-direction: column; align-items: flex-start; }
-  .contact-details{ text-align: left; }
+  .contact{ min-height: auto; }
 }
 
 /* ---------- accessibility ---------- */
