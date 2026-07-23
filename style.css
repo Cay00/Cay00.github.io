@@ -1,11 +1,21 @@
 /* ---------- tokens ---------- */
 :root{
+  /* DARK MODE */
+  --bg: #111110;
+  --surface: #1c1c1a;
+  --border: #2e2e2b;
+  --text: #f0f0ee;
+  --muted: #9a9a96;
+  --accent: #5b6aef;
+  /*
+  LIGHT MODE
   --bg: #f3f3f1;
   --surface: #e7e7e4;
   --border: #dcdcd8;
   --text: #161616;
   --muted: #6f6f6c;
   --accent: #3548d4;
+  */
 
   --font: "Plus Jakarta Sans", sans-serif;
   --max-w: 1120px;
