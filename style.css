@@ -9,6 +9,7 @@
 
   --font: "Plus Jakarta Sans", sans-serif;
   --max-w: 1040px;
+  --pad-x: clamp(20px, 5vw, 0px);
 }
 
 *{ box-sizing: border-box; }
@@ -30,8 +31,8 @@ a{ color: inherit; text-decoration: none; }
   max-width: var(--max-w);
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(20px, 5vw, 0px);
-  padding-right: clamp(20px, 5vw, 0px);
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
 }
 
 /* ---------- nav ---------- */
@@ -78,7 +79,7 @@ h1{
 .arrow-down{
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 0px);
+  padding: 0 var(--pad-x);
   font-size: 1.6rem;
   margin-bottom: clamp(48px, 8vw, 80px);
 }
@@ -100,8 +101,6 @@ h1{
 .socials a:hover, .socials a:focus-visible{ opacity: 0.6; }
 
 /* ---------- projects ---------- */
-.projects{ padding-bottom: clamp(32px, 6vw, 48px); }
-
 .project-row{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -151,7 +150,14 @@ hr{
   border-top: 1px solid var(--border);
   margin: 0;
 }
-hr.full{ margin: clamp(24px, 5vw, 40px) auto; }
+/* padding on hr doesn't inset border — draw the line in the content box */
+hr.full{
+  margin: clamp(24px, 5vw, 40px) auto;
+  border-top: none;
+  height: 1px;
+  background: var(--border);
+  background-clip: content-box;
+}
 
 /* ---------- about ---------- */
 .about{ padding: clamp(24px, 5vw, 40px) auto clamp(48px, 8vw, 72px); }
@@ -210,6 +216,14 @@ hr.full{ margin: clamp(24px, 5vw, 40px) auto; }
   justify-content: space-between;
   padding-top: 24px;
   padding-bottom: 40px;
+  position: relative;
+}
+.footer::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--pad-x);
+  right: var(--pad-x);
   border-top: 1px solid var(--border);
 }
 
