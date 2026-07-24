@@ -349,6 +349,30 @@ hr.full{
 .form-field input::placeholder,
 .form-field textarea::placeholder{ color: var(--muted); }
 
+.form-field.is-invalid input,
+.form-field.is-invalid textarea{
+  border-color: var(--accent);
+}
+.form-error{
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.4;
+}
+.form-field.is-invalid .form-error{
+  display: flex;
+}
+.form-error img{
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+}
+
 .btn-submit{
   align-self: flex-start;
   padding: 16px 32px;
