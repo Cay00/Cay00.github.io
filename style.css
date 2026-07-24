@@ -290,10 +290,10 @@ hr.full{
   font-weight: 500;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
-.social-btn img{
+.social-btn svg{
   width: 16px;
   height: 16px;
-  filter: invert(1);
+  fill: currentColor;
 }
 .btn-hero:hover, .btn-hero:focus-visible,
 .social-btn:hover, .social-btn:focus-visible{
@@ -370,8 +370,16 @@ hr.full{
 
 /* ---------- responsive ---------- */
 @media (max-width: 720px){
+  .nav-about{ display: none; }
+
+  .intro{ margin-top: -96px; padding-top: 96px; }
+
   .hero, .project-row, .contact{ grid-template-columns: 1fr; align-items: start; }
-  .hero{ row-gap: 24px; }
+  .hero{
+    row-gap: 32px;
+    padding-top: 96px;
+    padding-bottom: 32px;
+  }
   .hero h1, .hero-desc{
     grid-column: 1;
     grid-row: auto;
@@ -387,8 +395,23 @@ hr.full{
     text-align: center;
   }
   .intro-bg img{ opacity: 0.15; }
+
+  .arrow-down{ margin-bottom: 32px; }
+
+  .about{ padding-top: 0px; padding-bottom: 64px; }
+  .about-tech{ gap: 16px 32px; }
+
   .project-image{ order: -1; }
-  .contact{ min-height: auto; }
+
+  .contact{
+    gap: 32px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  .contact-form{ gap: 16px; }
+  .form-field{ gap: 16px; }
+
+  .footer .byline{ font-size: 0.78rem; }
 }
 
 /* ---------- accessibility ---------- */
