@@ -6,7 +6,7 @@
   --border: #2e2e2b;
   --text: #f0f0ee;
   --muted: #9a9a96;
-  --accent: #5b6aef;
+  --accent: #947933;
   /*
   LIGHT MODE
   --bg: #f3f3f1;
@@ -39,6 +39,11 @@ body{
 }
 
 a{ color: inherit; text-decoration: none; }
+
+::selection{
+  background: var(--accent);
+  color: var(--bg);
+}
 
 /* ---------- shared width ---------- */
 .nav, .hero, .arrow-down, .byline-row, .projects, .about, .contact, .footer, hr.full{
@@ -285,10 +290,10 @@ hr.full{
   font-weight: 500;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
-.social-btn svg{
+.social-btn img{
   width: 16px;
   height: 16px;
-  fill: currentColor;
+  filter: invert(1);
 }
 .btn-hero:hover, .btn-hero:focus-visible,
 .social-btn:hover, .social-btn:focus-visible{
