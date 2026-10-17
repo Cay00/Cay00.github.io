@@ -430,7 +430,7 @@ hr.full{
     justify-content: center;
     text-align: center;
   }
-  .intro-bg img{ opacity: 0.15; }
+  .intro-bg img{ opacity: 0.3; }
 
   .about{ padding-top: 32px; padding-bottom: 32px; }
   .about-tech{ gap: 16px 32px; }

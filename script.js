@@ -51,7 +51,10 @@
     });
   });
 
-  form.addEventListener("submit", (event) => {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const ACCESS_KEY = "bf57c06b-ee47-429b-9673-2e5a6f534826";
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     let firstInvalid = null;
@@ -64,7 +67,33 @@
       return;
     }
 
-    // Placeholder — podłącz endpoint / obsługę wysyłki gdy będzie gotowa
-    form.reset();
+    const formData = new FormData(form);
+    formData.append("access_key", ACCESS_KEY);
+
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Wysyłanie...";
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Wiadomość została wysłana.");
+        form.reset();
+        fields.forEach((input) => setInvalid(input, false));
+      } else {
+        alert("Błąd: " + (data.message || "Nie udało się wysłać wiadomości."));
+      }
+    } catch {
+      alert("Coś poszło nie tak. Spróbuj ponownie.");
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
   });
 })();
