@@ -1,3 +1,53 @@
+/* ---------- efekty wizualne ---------- */
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // nav: tło z rozmyciem po przewinięciu
+  const nav = document.querySelector(".nav");
+  if (nav) {
+    const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  // projekty: odsłonięcie zdjęcia przy wejściu w viewport.
+  // Zdjęcia są domyślnie widoczne; chowamy je dopiero tutaj i tylko te,
+  // które faktycznie są poza ekranem. Obserwujemy cały wiersz (nie przycięte
+  // zdjęcie), a awaryjny timer odsłania wszystko, gdyby obserwator zawiódł.
+  const rows = document.querySelectorAll(".project-row");
+  if (!("IntersectionObserver" in window) || reduceMotion || !rows.length) return;
+
+  const reveal = (img) => img.classList.add("is-in");
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const img = entry.target.querySelector(".project-image");
+      if (img) reveal(img);
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -8% 0px" });
+
+  rows.forEach((row) => {
+    const img = row.querySelector(".project-image");
+    if (!img) return;
+    const rect = row.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.9) return; // już widoczne — nie chowamy
+    img.classList.add("will-reveal");
+    io.observe(row);
+  });
+
+  // zapas: jeśli obserwator z jakiegokolwiek powodu nie zadziała,
+  // sprawdzamy pozycję zdjęć przy przewijaniu i po załadowaniu strony
+  const sweep = () => {
+    document.querySelectorAll(".project-image.will-reveal:not(.is-in)").forEach((img) => {
+      if (img.getBoundingClientRect().top < window.innerHeight * 0.92) reveal(img);
+    });
+  };
+  window.addEventListener("scroll", sweep, { passive: true });
+  window.addEventListener("load", () => setTimeout(sweep, 800));
+})();
+
 (() => {
   const form = document.querySelector(".contact-form");
   if (!form) return;
