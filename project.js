@@ -1,6 +1,6 @@
 /* Podstrony projektów
    - przełączanie projektów bez przeładowania strony (podmieniana jest tylko prawa kolumna)
-   - karuzela opinii, liczniki statystyk, podgląd zrzutów */
+   - karuzela opinii, liczniki statystk, podgląd zrzutów */
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -113,9 +113,10 @@ function initPanel(panel) {
 })();
 
 /* =============== spis projektów + przełączanie paneli ===============
-   Wszystkie projekty są w jednym pliku (projekty.html). Klik w spis tylko
-   pokazuje inny panel, więc nic się nie przeładowuje — działa też po
-   otwarciu plików prosto z dysku (bez serwera). Adres: projekty.html#slug */
+   Wszystkie projekty są w jednym pliku (projekty.html). Źródłem prawdy jest
+   adres (#slug): klik w spis zmienia hash, a zdarzenie hashchange pokazuje
+   odpowiedni panel. Dzięki temu działa też przycisk „wstecz", ręczna zmiana
+   adresu i otwarcie pliku prosto z dysku. Brak blokad — wygrywa ostatni klik. */
 const list = document.querySelector(".pj-list ul");
 const panels = [...document.querySelectorAll(".pj-main")];
 
@@ -136,20 +137,19 @@ function markCurrent(id) {
 (() => {
   if (!panels.length) return;
 
-  const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
-  const nextFrame = () => new Promise((res) => requestAnimationFrame(() => res()));
   const idFromHash = () => {
     const id = decodeURIComponent(location.hash.slice(1));
     return panels.some((p) => p.id === id) ? id : panels[0].id;
   };
 
   let current = null;
-  let busy = false;
+  let token = 0; // numer ostatniego żądania — starsze przejścia są ignorowane
 
   // pokaż panel (bez animacji)
   function swap(id) {
     const target = panels.find((p) => p.id === id);
-    panels.forEach((p) => { p.hidden = p !== target; });
+    if (!target) return;
+    panels.forEach((p) => { p.hidden = p !== target; p.classList.remove("is-swapping"); });
     current = id;
     markCurrent(id);
     document.title = target.dataset.title || document.title;
@@ -157,50 +157,54 @@ function markCurrent(id) {
     initPanel(target);
   }
 
-  async function show(id) {
+  function show(id) {
     if (id === current) {
       window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
       return;
     }
-    if (busy) return;
-    busy = true;
-    try {
-      if (reduceMotion) {
+    const mine = ++token;
+
+    if (reduceMotion) {
+      swap(id);
+      return;
+    }
+
+    // zawsze kończymy na ostatnim żądanym projekcie, nawet jeśli animacja się wysypie
+    const finish = () => { if (mine === token && current !== id) swap(id); };
+
+    if (document.startViewTransition) {
+      try {
+        const vt = document.startViewTransition(() => { if (mine === token) swap(id); });
+        vt.finished.catch(finish).finally(finish);
+      } catch {
         swap(id);
-      } else if (document.startViewTransition) {
-        await document.startViewTransition(() => swap(id)).finished.catch(() => {});
-      } else {
-        // wersja awaryjna: wygaszenie → podmiana → pojawienie się
-        const out = panels.find((p) => !p.hidden);
-        out?.classList.add("is-swapping");
-        await sleep(180);
+      }
+    } else {
+      // wersja awaryjna: wygaszenie → podmiana → pojawienie się
+      const out = panels.find((p) => !p.hidden);
+      out?.classList.add("is-swapping");
+      setTimeout(() => {
+        if (mine !== token) return;
         swap(id);
-        out?.classList.remove("is-swapping");
         const inn = panels.find((p) => !p.hidden);
         inn.classList.add("is-swapping");
-        await nextFrame();
-        await nextFrame();
-        inn.classList.remove("is-swapping");
-      }
-    } finally {
-      busy = false;
+        requestAnimationFrame(() => requestAnimationFrame(() => inn.classList.remove("is-swapping")));
+      }, 180);
     }
   }
 
-  const isPlainClick = (e) =>
-    e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
-
+  // klik w link do już otwartego projektu nie zmienia hasha — przewiń na górę
   document.addEventListener("click", (e) => {
     const a = e.target.closest("a.pj-item, a.pj-next");
-    if (!a || !isPlainClick(e)) return;
+    if (!a) return;
     const href = a.getAttribute("href") || "";
-    if (!href.startsWith("#")) return;
-    e.preventDefault();
-    const id = href.slice(1);
-    if (id !== current) history.pushState(null, "", href);
-    show(id);
+    if (href === "#" + current) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    }
   });
 
+  window.addEventListener("hashchange", () => show(idFromHash()));
   window.addEventListener("popstate", () => show(idFromHash()));
 
   swap(idFromHash());
