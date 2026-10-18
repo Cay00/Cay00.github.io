@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Projekty | Krzysztof Turek</title>
+  <meta name="description" content="Projekty Krzysztofa Turka — aplikacje webowe i narzędzia: opisy, zrzuty ekranu i kod." />
+  <meta name="author" content="Krzysztof Turek" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="logo">Cayoo<span class="logo-dot">_</span></a>
+    <nav class="nav-links">
+      <a href="index.html#top" class="nav-about">O mnie</a>
+      <a href="index.html#projekty">Projekty</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="pj-layout">
+
+      <!-- LEWA KOLUMNA: spis projektów (zostaje na miejscu — przełączane są tylko panele po prawej) -->
+      <nav class="pj-list" aria-label="Projekty">
+        <p class="pj-list-title">Projekty</p>
+        <ul>
+            <li>
+              <a href="#orbita" class="pj-item">
+                <span class="pj-item-name">Orbita</span>
+                <span class="pj-item-kind">Planer nauki i nawyków</span>
+              </a>
+            </li>
+            <li>
+              <a href="#szlak" class="pj-item">
+                <span class="pj-item-name">Szlak</span>
+                <span class="pj-item-kind">Mapa wycieczek</span>
+              </a>
+            </li>
+            <li>
+              <a href="#kompas" class="pj-item">
+                <span class="pj-item-name">Kompas</span>
+                <span class="pj-item-kind">Panel monitoringu energii</span>
+              </a>
+            </li>
+            <li>
+              <a href="#atlas" class="pj-item">
+                <span class="pj-item-name">Atlas</span>
+                <span class="pj-item-kind">Katalog zdjęć</span>
+              </a>
+            </li>
+            <li>
+              <a href="#cien" class="pj-item">
+                <span class="pj-item-name">Cień</span>
+                <span class="pj-item-kind">Rozszerzenie do przeglądarki</span>
+              </a>
+            </li>
+        </ul>
+      </nav>
+
+      <!-- PRAWA KOLUMNA: panele projektów; widoczny jest zawsze jeden -->
+            <article class="pj-main" id="orbita" data-title="Orbita — Planer nauki i nawyków | Krzysztof Turek">
+        <div class="pj-cover">
+          <img src="assets/images/bg_image (1).jpg" alt="Główny ekran projektu Orbita">
+        </div>
+
+        <header class="pj-hero">
+          <h1>Orbita — planer nauki i nawyków</h1>
+          <p class="pj-lead">Aplikacja, która układa plan nauki na każdy tydzień i pilnuje, żeby nie zgubić rytmu. Zaprojektowałem ją i napisałem od zera — od pierwszego szkicu po publikację.</p>
+          <div class="pj-actions">
+            <!-- PODMIEŃ href na adres produktu -->
+            <a href="#" target="_blank" rel="noopener" class="btn-primary">Otwórz aplikację ↗</a>
+          </div>
+        </header>
+
+        <!-- PRZYKŁADOWE DANE — podmień na prawdziwe statystyki -->
+        <section class="pj-stats" aria-label="Statystyki projektu">
+          <div class="pj-stat">
+            <p class="pj-stat-num" data-count="2400" data-suffix="+">2 400+</p>
+            <p class="pj-stat-label">aktywnych użytkowników</p>
+          </div>
+          <div class="pj-stat">
+            <p class="pj-stat-num" data-count="4.8" data-decimals="1">4,8</p>
+            <p class="pj-stat-label">średnia ocena użytkowników</p>
+          </div>
+          <div class="pj-stat">
+            <p class="pj-stat-num" data-count="860" data-suffix="+">860+</p>
+            <p class="pj-stat-label">pozytywnych komentarzy</p>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>O projekcie</h2>
+          <div class="pj-prose">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Projekt powstał z potrzeby, której nie rozwiązywało żadne z istniejących narzędzi.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Najwięcej uwagi poświęciłem głównemu ekranowi: ma odpowiadać na jedno pytanie i nic ponadto.</p>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>Więcej ekranów</h2>
+          <div class="pj-gallery">
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (2).jpg" data-alt="Widok główny — Orbita">
+              <img src="assets/images/bg_image (2).jpg" alt="Widok główny — Orbita" loading="lazy">
+              <span class="pj-shot-cap">Widok główny</span>
+            </button>
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (3).jpg" data-alt="Szczegóły — Orbita">
+              <img src="assets/images/bg_image (3).jpg" alt="Szczegóły — Orbita" loading="lazy">
+              <span class="pj-shot-cap">Szczegóły</span>
+            </button>
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (4).jpg" data-alt="Podsumowanie — Orbita">
+              <img src="assets/images/bg_image (4).jpg" alt="Podsumowanie — Orbita" loading="lazy">
+              <span class="pj-shot-cap">Podsumowanie</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- PRZYKŁADOWE OPINIE — podmień na prawdziwe (za zgodą autorów) -->
+        <section class="pj-block pj-reviews" aria-labelledby="reviews-title">
+          <div class="pj-reviews-head">
+            <h2 id="reviews-title">Co mówią użytkownicy</h2>
+            <div class="pj-controls">
+              <button type="button" class="pj-arrow" data-dir="-1" aria-label="Poprzednie opinie">←</button>
+              <button type="button" class="pj-arrow" data-dir="1" aria-label="Następne opinie">→</button>
+            </div>
+          </div>
+
+          <div class="pj-carousel" role="region" aria-roledescription="karuzela" aria-label="Opinie użytkowników" tabindex="0">
+            <ul class="pj-track">
+              <li class="pj-review">
+                <div>
+                  <p class="pj-stars" role="img" aria-label="Ocena 5 na 5">★★★★★</p>
+                  <blockquote><p>Wreszcie plan, którego nie porzucam po tygodniu. Aplikacja sama przesuwa zaległości i nie robi mi wyrzutów.</p></blockquote>
+                </div>
+                <div class="pj-author">
+                  <span class="pj-avatar" aria-hidden="true">AK</span>
+                  <p><strong>Anna K.</strong><span>studentka informatyki</span></p>
+                </div>
+              </li>
+              <li class="pj-review">
+                <div>
+                  <p class="pj-stars" role="img" aria-label="Ocena 5 na 5">★★★★★</p>
+                  <blockquote><p>Ekran „Dziś” to genialny pomysł. Otwieram, widzę co robić, zamykam. Do sesji przygotowałem się bez stresu.</p></blockquote>
+                </div>
+                <div class="pj-author">
+                  <span class="pj-avatar" aria-hidden="true">MW</span>
+                  <p><strong>Michał W.</strong><span>student, III rok</span></p>
+                </div>
+              </li>
+              <li class="pj-review">
+                <div>
+                  <p class="pj-stars" role="img" aria-label="Ocena 5 na 5">★★★★★</p>
+                  <blockquote><p>Prosta, szybka i ładna. Używam codziennie od kilku miesięcy, a przypomnienia o powtórkach naprawdę działają.</p></blockquote>
+                </div>
+                <div class="pj-author">
+                  <span class="pj-avatar" aria-hidden="true">JS</span>
+                  <p><strong>Julia S.</strong><span>uczennica liceum</span></p>
+                </div>
+              </li>
+              <li class="pj-review">
+                <div>
+                  <p class="pj-stars" role="img" aria-label="Ocena 5 na 5">★★★★★</p>
+                  <blockquote><p>Testowałem kilka podobnych narzędzi — to jako jedyne nie wymaga ode mnie ciągłego uzupełniania.</p></blockquote>
+                </div>
+                <div class="pj-author">
+                  <span class="pj-avatar" aria-hidden="true">PN</span>
+                  <p><strong>Piotr N.</strong><span>programista, uczy się języków</span></p>
+                </div>
+              </li>
+              <li class="pj-review">
+                <div>
+                  <p class="pj-stars" role="img" aria-label="Ocena 5 na 5">★★★★★</p>
+                  <blockquote><p>Bardzo dobrze przemyślany interfejs. Widać, że ktoś zadał sobie trud, żeby było po prostu wygodnie.</p></blockquote>
+                </div>
+                <div class="pj-author">
+                  <span class="pj-avatar" aria-hidden="true">KD</span>
+                  <p><strong>Karolina D.</strong><span>doktorantka</span></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>Kod źródłowy</h2>
+          <div class="pj-actions">
+            <!-- PODMIEŃ href na repozytorium projektu -->
+            <a href="https://github.com/Cay00/" target="_blank" rel="noopener" class="social-btn">
+              <img src="assets/icons/github-logo-bold.svg" alt="" width="16" height="16" aria-hidden="true">
+              Kod na GitHubie
+            </a>
+          </div>
+        </section>
+
+        <a href="#szlak" class="pj-next">
+          <span class="pj-next-label">Następny projekt</span>
+          <span class="pj-next-title">Szlak <span class="pj-next-arrow" aria-hidden="true">→</span></span>
+        </a>
+      </article>
+
+      <article class="pj-main" id="szlak" data-title="Szlak — Mapa wycieczek | Krzysztof Turek" hidden>
+        <div class="pj-cover">
+          <img src="assets/images/bg_image (2).jpg" alt="Główny ekran projektu Szlak">
+        </div>
+
+        <header class="pj-hero">
+          <h1>Szlak — mapa wycieczek</h1>
+          <p class="pj-lead">Prosta mapa do planowania jednodniowych tras w okolicy: dystans, przewyższenia i punkty widokowe na jednym ekranie.</p>
+        </header>
+
+        <section class="pj-block">
+          <h2>O projekcie</h2>
+          <div class="pj-prose">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Projekt powstał z potrzeby, której nie rozwiązywało żadne z istniejących narzędzi.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Najwięcej uwagi poświęciłem głównemu ekranowi: ma odpowiadać na jedno pytanie i nic ponadto.</p>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>Więcej ekranów</h2>
+          <div class="pj-gallery">
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (3).jpg" data-alt="Widok główny — Szlak">
+              <img src="assets/images/bg_image (3).jpg" alt="Widok główny — Szlak" loading="lazy">
+              <span class="pj-shot-cap">Widok główny</span>
+            </button>
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (4).jpg" data-alt="Szczegóły — Szlak">
+              <img src="assets/images/bg_image (4).jpg" alt="Szczegóły — Szlak" loading="lazy">
+              <span class="pj-shot-cap">Szczegóły</span>
+            </button>
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (5).jpg" data-alt="Podsumowanie — Szlak">
+              <img src="assets/images/bg_image (5).jpg" alt="Podsumowanie — Szlak" loading="lazy">
+              <span class="pj-shot-cap">Podsumowanie</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>Kod źródłowy</h2>
+          <div class="pj-actions">
+            <!-- PODMIEŃ href na repozytorium projektu -->
+            <a href="https://github.com/Cay00/" target="_blank" rel="noopener" class="social-btn">
+              <img src="assets/icons/github-logo-bold.svg" alt="" width="16" height="16" aria-hidden="true">
+              Kod na GitHubie
+            </a>
+          </div>
+        </section>
+
+        <a href="#kompas" class="pj-next">
+          <span class="pj-next-label">Następny projekt</span>
+          <span class="pj-next-title">Kompas <span class="pj-next-arrow" aria-hidden="true">→</span></span>
+        </a>
+      </article>
+
+      <article class="pj-main" id="kompas" data-title="Kompas — Panel monitoringu energii | Krzysztof Turek" hidden>
+        <div class="pj-cover">
+          <img src="assets/images/bg_image (3).jpg" alt="Główny ekran projektu Kompas">
+        </div>
+
+        <header class="pj-hero">
+          <h1>Kompas — panel monitoringu energii</h1>
+          <p class="pj-lead">Pulpit, który zbiera odczyty z liczników i instalacji fotowoltaicznej i pokazuje, ile prądu faktycznie zużywasz i produkujesz.</p>
+        </header>
+
+        <section class="pj-block">
+          <h2>O projekcie</h2>
+          <div class="pj-prose">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Projekt powstał z potrzeby, której nie rozwiązywało żadne z istniejących narzędzi.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Najwięcej uwagi poświęciłem głównemu ekranowi: ma odpowiadać na jedno pytanie i nic ponadto.</p>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>Więcej ekranów</h2>
+          <div class="pj-gallery">
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (4).jpg" data-alt="Widok główny — Kompas">
+              <img src="assets/images/bg_image (4).jpg" alt="Widok główny — Kompas" loading="lazy">
+              <span class="pj-shot-cap">Widok główny</span>
+            </button>
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (5).jpg" data-alt="Szczegóły — Kompas">
+              <img src="assets/images/bg_image (5).jpg" alt="Szczegóły — Kompas" loading="lazy">
+              <span class="pj-shot-cap">Szczegóły</span>
+            </button>
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (1).jpg" data-alt="Podsumowanie — Kompas">
+              <img src="assets/images/bg_image (1).jpg" alt="Podsumowanie — Kompas" loading="lazy">
+              <span class="pj-shot-cap">Podsumowanie</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>Kod źródłowy</h2>
+          <div class="pj-actions">
+            <!-- PODMIEŃ href na repozytorium projektu -->
+            <a href="https://github.com/Cay00/" target="_blank" rel="noopener" class="social-btn">
+              <img src="assets/icons/github-logo-bold.svg" alt="" width="16" height="16" aria-hidden="true">
+              Kod na GitHubie
+            </a>
+          </div>
+        </section>
+
+        <a href="#atlas" class="pj-next">
+          <span class="pj-next-label">Następny projekt</span>
+          <span class="pj-next-title">Atlas <span class="pj-next-arrow" aria-hidden="true">→</span></span>
+        </a>
+      </article>
+
+      <article class="pj-main" id="atlas" data-title="Atlas — Katalog zdjęć | Krzysztof Turek" hidden>
+        <div class="pj-cover">
+          <img src="assets/images/bg_image (4).jpg" alt="Główny ekran projektu Atlas">
+        </div>
+
+        <header class="pj-hero">
+          <h1>Atlas — katalog zdjęć</h1>
+          <p class="pj-lead">Program do tagowania i indeksowania dużych zbiorów zdjęć, żeby każde z nich dało się odnaleźć w kilka sekund.</p>
+        </header>
+
+        <section class="pj-block">
+          <h2>O projekcie</h2>
+          <div class="pj-prose">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Projekt powstał z potrzeby, której nie rozwiązywało żadne z istniejących narzędzi.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Najwięcej uwagi poświęciłem głównemu ekranowi: ma odpowiadać na jedno pytanie i nic ponadto.</p>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>Więcej ekranów</h2>
+          <div class="pj-gallery">
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (5).jpg" data-alt="Widok główny — Atlas">
+              <img src="assets/images/bg_image (5).jpg" alt="Widok główny — Atlas" loading="lazy">
+              <span class="pj-shot-cap">Widok główny</span>
+            </button>
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (1).jpg" data-alt="Szczegóły — Atlas">
+              <img src="assets/images/bg_image (1).jpg" alt="Szczegóły — Atlas" loading="lazy">
+              <span class="pj-shot-cap">Szczegóły</span>
+            </button>
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (2).jpg" data-alt="Podsumowanie — Atlas">
+              <img src="assets/images/bg_image (2).jpg" alt="Podsumowanie — Atlas" loading="lazy">
+              <span class="pj-shot-cap">Podsumowanie</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>Kod źródłowy</h2>
+          <div class="pj-actions">
+            <!-- PODMIEŃ href na repozytorium projektu -->
+            <a href="https://github.com/Cay00/" target="_blank" rel="noopener" class="social-btn">
+              <img src="assets/icons/github-logo-bold.svg" alt="" width="16" height="16" aria-hidden="true">
+              Kod na GitHubie
+            </a>
+          </div>
+        </section>
+
+        <a href="#cien" class="pj-next">
+          <span class="pj-next-label">Następny projekt</span>
+          <span class="pj-next-title">Cień <span class="pj-next-arrow" aria-hidden="true">→</span></span>
+        </a>
+      </article>
+
+      <article class="pj-main" id="cien" data-title="Cień — Rozszerzenie do przeglądarki | Krzysztof Turek" hidden>
+        <div class="pj-cover">
+          <img src="assets/images/bg_image (5).jpg" alt="Główny ekran projektu Cień">
+        </div>
+
+        <header class="pj-hero">
+          <h1>Cień — rozszerzenie do przeglądarki</h1>
+          <p class="pj-lead">Rozszerzenie, które ukrywa rozpraszające elementy popularnych serwisów, żeby łatwiej było skupić się na tym, po co się tam weszło.</p>
+          <div class="pj-actions">
+            <!-- PODMIEŃ href na adres produktu -->
+            <a href="#" target="_blank" rel="noopener" class="btn-primary">Otwórz aplikację ↗</a>
+          </div>
+        </header>
+
+        <section class="pj-block">
+          <h2>O projekcie</h2>
+          <div class="pj-prose">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Projekt powstał z potrzeby, której nie rozwiązywało żadne z istniejących narzędzi.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Najwięcej uwagi poświęciłem głównemu ekranowi: ma odpowiadać na jedno pytanie i nic ponadto.</p>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>Więcej ekranów</h2>
+          <div class="pj-gallery">
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (1).jpg" data-alt="Widok główny — Cień">
+              <img src="assets/images/bg_image (1).jpg" alt="Widok główny — Cień" loading="lazy">
+              <span class="pj-shot-cap">Widok główny</span>
+            </button>
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (2).jpg" data-alt="Szczegóły — Cień">
+              <img src="assets/images/bg_image (2).jpg" alt="Szczegóły — Cień" loading="lazy">
+              <span class="pj-shot-cap">Szczegóły</span>
+            </button>
+            <button type="button" class="pj-shot" data-full="assets/images/bg_image (3).jpg" data-alt="Podsumowanie — Cień">
+              <img src="assets/images/bg_image (3).jpg" alt="Podsumowanie — Cień" loading="lazy">
+              <span class="pj-shot-cap">Podsumowanie</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="pj-block">
+          <h2>Kod źródłowy</h2>
+          <div class="pj-actions">
+            <!-- PODMIEŃ href na repozytorium projektu -->
+            <a href="https://github.com/Cay00/" target="_blank" rel="noopener" class="social-btn">
+              <img src="assets/icons/github-logo-bold.svg" alt="" width="16" height="16" aria-hidden="true">
+              Kod na GitHubie
+            </a>
+          </div>
+        </section>
+
+        <a href="#orbita" class="pj-next">
+          <span class="pj-next-label">Następny projekt</span>
+          <span class="pj-next-title">Orbita <span class="pj-next-arrow" aria-hidden="true">→</span></span>
+        </a>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span class="byline">© 2026 — Krzysztof Turek. All rights reserved.</span>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Podgląd zrzutu ekranu">
+    <button type="button" class="lightbox-close" aria-label="Zamknij podgląd">✕</button>
+    <img src="" alt="">
+  </dialog>
+
+  <script src="script.js"></script>
+  <script src="project.js"></script>
+</body>
+
+</html>

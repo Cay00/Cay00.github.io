@@ -275,6 +275,7 @@ article.project-row:nth-of-type(even) .project-image{ order: -1; }
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1; /* nad zdjęciem — bez tego zdjęcie (osobna warstwa) przechwytywało kliknięcia */
 }
 .project-row:hover .project-link,
 .project-link:focus-visible{
