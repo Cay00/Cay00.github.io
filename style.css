@@ -21,9 +21,16 @@
 *{ box-sizing: border-box; }
 
 html{
-  /* ≈ wysokość wiszącego pill-headera */
-  scroll-padding-top: 96px;
   scroll-behavior: smooth;
+}
+/* pod header — poza #projekty: tam granicą jest dolna linia chipów */
+#top,
+#o-mnie,
+#kontakt{
+  scroll-margin-top: 96px;
+}
+#projekty{
+  scroll-margin-top: 0;
 }
 
 body{
@@ -177,10 +184,16 @@ a{ color: inherit; text-decoration: none; }
 .theme-toggle-icon{ display: block; }
 
 /* ---------- intro / hero ---------- */
+/* pierwszy ekran: hero + stack w pełni widoczne w 100vh */
 .intro{
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
   margin-top: 0;
-  padding-top: 120px;
+  padding-top: 96px;
+  box-sizing: border-box;
 }
 .intro-bg{
   position: absolute;
@@ -205,7 +218,7 @@ a{ color: inherit; text-decoration: none; }
   left: 0;
   right: 0;
   bottom: 0;
-  height: min(48%, 380px);
+  height: min(42%, 280px);
   background: linear-gradient(
     to bottom,
     transparent 0%,
@@ -222,18 +235,20 @@ a{ color: inherit; text-decoration: none; }
 }
 
 .hero{
+  flex: 1 1 auto;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   grid-template-rows: auto auto;
   column-gap: 64px;
-  row-gap: 32px;
+  row-gap: 24px;
+  align-content: center;
   align-items: end;
-  padding-top: 192px;
-  padding-bottom: 160px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 h1{
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-size: clamp(2.4rem, 5.5vw, 3.75rem);
   font-weight: 700;
   line-height: 1.12;
   margin: 0;
@@ -259,10 +274,11 @@ h1{
 
 .arrow-down{
   display: inline-flex;
+  flex-shrink: 0;
   align-self: flex-start;
   width: fit-content;
   margin-left: max(32px, calc(50% - var(--max-w) / 2 + 32px));
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   padding: 0;
   font-size: 1.6rem;
   line-height: 1;
@@ -282,14 +298,23 @@ h1{
 
 /* ---------- about / tech ---------- */
 .about{
-  padding-top: 32px;
-  padding-bottom: 64px;
+  flex-shrink: 0;
+  padding-top: 24px;
+  padding-bottom: 72px;
   text-align: center;
 }
 .about-heading{
-  margin: 0 0 32px;
+  margin: 0 0 48px;
   font-size: 1rem;
   color: var(--muted);
+}
+/* kotwica scrolla tuż pod chipami — layout chipów bez zmian */
+.projects-scroll-anchor{
+  display: block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 .about-tech{
   display: flex;
@@ -659,13 +684,14 @@ hr.full{
   .nav-links .nav-about{ display: none; }
   .nav-links a{ padding: 10px 16px; font-size: 0.88rem; }
 
-  .intro{ padding-top: 100px; }
+  .intro{ padding-top: 84px; }
 
   .hero, .project-row, .contact{ grid-template-columns: 1fr; align-items: start; }
   .hero{
-    row-gap: 32px;
-    padding-top: 96px;
-    padding-bottom: 48px;
+    row-gap: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    align-content: start;
   }
   .hero h1, .hero-desc{
     grid-column: 1;
@@ -683,7 +709,8 @@ hr.full{
   }
   .intro-bg img{ object-position: center 40%; }
 
-  .about{ padding-top: 32px; padding-bottom: 40px; }
+  .about{ padding-top: 16px; padding-bottom: 48px; }
+  .about-heading{ margin-bottom: 40px; }
 
   .project-row{
     gap: 32px;
