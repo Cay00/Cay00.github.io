@@ -38,14 +38,24 @@
 
 <body>
 
-  <header class="nav">
+  <div class="nav-wrap">
     <a href="#top" class="logo">Cayoo<span class="logo-dot">_</span></a>
-    <nav class="nav-links">
-      <a href="#top" class="nav-about">O mnie</a>
-      <a href="#projekty">Projekty</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-  </header>
+    <header class="nav">
+      <nav class="nav-links">
+        <a href="#top" class="nav-about">O mnie</a>
+        <a href="#projekty">Projekty</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+    <button type="button" class="theme-toggle" aria-label="Przełącz motyw jasny/ciemny" title="Motyw">
+      <svg class="theme-toggle-icon theme-toggle-icon--moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M12.1 22c-5.2 0-9.4-4-9.9-9.1C1.7 7.5 5.7 2.6 11 2c.4 0 .7.4.6.8A8.5 8.5 0 0 0 20.2 13c.1.3-.2.7-.6.7-.5 0-1 .1-1.5.1H17c-2.8 0-4.9 2.2-4.9 5v.2c0 .4-.3.8-.7.9-.4.1-.8.1-1.3.1Z"/>
+      </svg>
+      <svg class="theme-toggle-icon theme-toggle-icon--sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" hidden>
+        <path fill="currentColor" d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM4.2 5.6a1 1 0 0 1 1.4 0l.7.7a1 1 0 0 1-1.4 1.4l-.7-.7a1 1 0 0 1 0-1.4Zm13.5 13.5a1 1 0 0 1 1.4 0l.7.7a1 1 0 1 1-1.4 1.4l-.7-.7a1 1 0 0 1 0-1.4ZM2 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Zm18 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1ZM4.2 18.4a1 1 0 0 1 0-1.4l.7-.7a1 1 0 1 1 1.4 1.4l-.7.7a1 1 0 0 1-1.4 0Zm13.5-13.5a1 1 0 0 1 0-1.4l.7-.7a1 1 0 1 1 1.4 1.4l-.7.7a1 1 0 0 1-1.4 0Z"/>
+      </svg>
+    </button>
+  </div>
 
   <main id="top">
 

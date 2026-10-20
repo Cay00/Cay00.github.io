@@ -143,18 +143,25 @@ function markCurrent(id) {
   };
 
   let current = null;
-  let token = 0; // numer ostatniego żądania — starsze przejścia są ignorowane
 
-  // pokaż panel (bez animacji)
   function swap(id) {
     const target = panels.find((p) => p.id === id);
     if (!target) return;
-    panels.forEach((p) => { p.hidden = p !== target; p.classList.remove("is-swapping"); });
+    panels.forEach((p) => {
+      p.hidden = p !== target;
+      p.classList.remove("is-enter");
+    });
     current = id;
     markCurrent(id);
     document.title = target.dataset.title || document.title;
     window.scrollTo({ top: 0, behavior: "instant" });
     initPanel(target);
+
+    if (!reduceMotion) {
+      target.classList.add("is-enter");
+      const done = () => target.classList.remove("is-enter");
+      target.addEventListener("animationend", done, { once: true });
+    }
   }
 
   function show(id) {
@@ -162,35 +169,8 @@ function markCurrent(id) {
       window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
       return;
     }
-    const mine = ++token;
-
-    if (reduceMotion) {
-      swap(id);
-      return;
-    }
-
-    // zawsze kończymy na ostatnim żądanym projekcie, nawet jeśli animacja się wysypie
-    const finish = () => { if (mine === token && current !== id) swap(id); };
-
-    if (document.startViewTransition) {
-      try {
-        const vt = document.startViewTransition(() => { if (mine === token) swap(id); });
-        vt.finished.catch(finish).finally(finish);
-      } catch {
-        swap(id);
-      }
-    } else {
-      // wersja awaryjna: wygaszenie → podmiana → pojawienie się
-      const out = panels.find((p) => !p.hidden);
-      out?.classList.add("is-swapping");
-      setTimeout(() => {
-        if (mine !== token) return;
-        swap(id);
-        const inn = panels.find((p) => !p.hidden);
-        inn.classList.add("is-swapping");
-        requestAnimationFrame(() => requestAnimationFrame(() => inn.classList.remove("is-swapping")));
-      }, 180);
-    }
+    // natychmiast — bez View Transitions / timeoutów blokujących spis
+    swap(id);
   }
 
   // klik w link do już otwartego projektu nie zmienia hasha — przewiń na górę
